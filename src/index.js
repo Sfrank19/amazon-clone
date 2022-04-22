@@ -1,15 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createRoot } from 'react-dom/client'
+//import * as serviceWorker from "./serviceWorker";
+import reducer, { initialState } from './reducer';
+import { StateProvider } from './StateProvider';
 
-ReactDOM.render(
+const container = document.getElementById('root')
+const root = createRoot(container);
+root.render(<React.StrictMode><App tab="home" /></React.StrictMode>);
+
+<StateProvider initialState={initialState} reducer={reducer}>
+<App />
+</StateProvider>
+
+/*{ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
-);
+  container
+  //document.getElementById('root')
+);}*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
