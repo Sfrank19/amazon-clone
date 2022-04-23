@@ -10,11 +10,13 @@ import { StateProvider } from './StateProvider';
 
 const container = document.getElementById('root')
 const root = createRoot(container);
-root.render(<React.StrictMode><App tab="home" /></React.StrictMode>);
+root.render(
+<React.StrictMode>
+  <StateProvider initialState={initialState} reducer={reducer}>
+    <App tab="home" />
+  </StateProvider>
+</React.StrictMode>);
 
-<StateProvider initialState={initialState} reducer={reducer}>
-<App />
-</StateProvider>
 
 /*{ReactDOM.render(
   <React.StrictMode>
