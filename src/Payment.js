@@ -5,7 +5,7 @@ import { useStateValue } from './StateProvider';
 import { Link } from 'react-router-dom';
 
 function Payment() {
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ basket, user }] = useStateValue();
 
   return (
     <div className='payment'>
