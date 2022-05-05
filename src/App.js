@@ -12,7 +12,7 @@ import { useStateValue } from './StateProvider';
 
 function App() {
 
-  const [{}, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   useEffect(() => {
     //Runs once when the app component loads when array is empty. like a Dynamic IF statement
@@ -31,7 +31,7 @@ function App() {
         })
       }
     })
-  }, [])
+  }, [dispatch])
 
   return (
     //BEM CONVENTION
