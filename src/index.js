@@ -8,13 +8,6 @@ import reportWebVitals from './reportWebVitals';
 import reducer, { initialState } from './reducer';
 import { StateProvider } from './StateProvider';
 
-/*const container = document.getElementById('root')
-const root = createRoot(container);
-root.render(
-<React.StrictMode>
-  
-</React.StrictMode>);*/
-
 
 ReactDOM.render(
   <React.StrictMode>

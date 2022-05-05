@@ -12,7 +12,7 @@ import { useStateValue } from './StateProvider';
 
 function App() {
 
-  const [dispatch] = useStateValue();
+  const [{basket}, dispatch] = useStateValue();
 
   useEffect(() => {
     //Runs once when the app component loads when array is empty. like a Dynamic IF statement
