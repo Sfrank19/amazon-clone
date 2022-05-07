@@ -8,11 +8,14 @@ import Login from './Login';
 import Payment from './Payment'
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+const promise = loadStripe('pk_test_51Ktd1PLq9mIg6ChuhZzGF2SSPAMcRTx4I2yBA1KL9h4sSd2nzGc6NIWpyQqwMrcupfc1PzrtgAg7Op8lx25Q5o4S00kmNmtKsK');
 
 function App() {
 
-  const [{basket}, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     //Runs once when the app component loads when array is empty. like a Dynamic IF statement
@@ -39,10 +42,26 @@ function App() {
       <div className="app">
 
         <Routes>
-          <Route path='/login' element={<Login/>} />
-          <Route path='/checkout' element={<><Header/><Checkout/></>} />
-          <Route path='/payment' element={<><Header/><Payment/></>} />
-          <Route path='/' element={<><Header/><Home/></>} />
+          <Route path='/login'>
+            <Login/> 
+          </Route>
+
+          <Route path='/checkout'>
+            <Header/>
+            <Checkout/>
+          </Route>
+
+          <Route path='/payment'> 
+            <Header/>
+            <Elements stripe={promise}>
+              <Payment/>
+            </Elements>
+          </Route>
+
+          <Route path='/'>
+            <Header/>
+            <Home/>
+          </Route>
         </Routes>
       </div>
     </Router>
