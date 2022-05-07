@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import { createRoot } from 'react-dom/client'
 //import * as serviceWorker from "./serviceWorker";
 import reducer, { initialState } from './reducer';
 import { StateProvider } from './StateProvider';
@@ -13,8 +12,9 @@ ReactDOM.render(
   <React.StrictMode>
     
     <StateProvider initialState={initialState} reducer={reducer}>
-    <App tab="home" />
+      <App tab="home" />
     </StateProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
