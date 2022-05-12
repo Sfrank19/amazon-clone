@@ -1,3 +1,5 @@
+#Test card number is: 4242 4242 4242 4242 exp: 4/24 cv 242  zip 42424
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
