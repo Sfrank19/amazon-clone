@@ -10,12 +10,20 @@ const stripe = require("stripe")('sk_test_51Ktd1PLq9mIg6ChuSbOszLnU5ODxMIv0FRaCf
 const app = express();
 
 //middleware
+/*const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}*/
+
 app.use(cors({origin: true}));
 app.use(express.json());
 
 //API routes
 app.get('/',(request, response) => response.status(200).send('hello world'));
 app.post('/payments/create', async (request,response) => {
+    //response.setHeader("Access-Control-Allow-Origin", "*")
+    //response.setHeader("Access-Control-Allow-Credentials", "true");
     const total = request.query.total;
 
     console.log('Payment Request Received >>>>>> for this amount >>>>>>', total)
