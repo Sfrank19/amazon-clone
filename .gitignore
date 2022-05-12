@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+amazon-clone/package-lock.json
+amazon-clone/package.json
