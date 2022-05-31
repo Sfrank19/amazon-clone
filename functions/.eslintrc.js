@@ -4,9 +4,11 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
+  "parserOptions": {"ecmaVersion": 2017},
+  "extends":
     "eslint:recommended",
-    "google",
+  "plugins": [
+    "promise"
   ],
   rules: {
     quotes: ["error", "double"],

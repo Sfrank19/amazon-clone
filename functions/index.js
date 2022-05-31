@@ -1,7 +1,7 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-const stripe = require("stripe")('sk_test_51Ktd1PLq9mIg6ChuSbOszLnU5ODxMIv0FRaCfX53z92AszwdWJ9fhHfEz1AjCINZBW0JNI7HTLKNPq2sVuYcxaMw000vBkEuaj');
+const stripe = require("stripe")("sk_test_51Ktd1PLq9mIg6ChuSbOszLnU5ODxMIv0FRaCfX53z92AszwdWJ9fhHfEz1AjCINZBW0JNI7HTLKNPq2sVuYcxaMw000vBkEuaj");
 
 //to set up an API this is whats needed:
 //API
@@ -20,17 +20,17 @@ app.use(cors({origin: true}));
 app.use(express.json());
 
 //API routes
-app.get('/',(request, response) => response.status(200).send('hello world'));
-app.post('/payments/create', async (request,response) => {
+app.get("/",(request, response) => response.status(200).send("hello world"));
+app.post("/payments/create", async (request,response) => {
     //response.setHeader("Access-Control-Allow-Origin", "*")
     //response.setHeader("Access-Control-Allow-Credentials", "true");
     const total = request.query.total;
 
-    console.log('Payment Request Received >>>>>> for this amount >>>>>>', total)
+    console.log("Payment Request Received >>>>>> for this amount >>>>>>", total)
 
     const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
-        currency: 'usd',
+        currency: "usd",
     });
 
     response.status(201).send({

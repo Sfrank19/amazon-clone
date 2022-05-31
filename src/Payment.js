@@ -32,7 +32,7 @@ function Payment() {
             //post/get requests
             const response = await axios({
                 method: 'post',
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
+                url: `https://us-central1-clone-7096e.cloudfunctions.net/payments/create?total=${getBasketTotal(basket) * 100}`,
                 /*headers: {
                     "Access-Control-Allow-Origin": "*",
                     //"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
