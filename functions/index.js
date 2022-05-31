@@ -22,8 +22,7 @@ app.use(express.json());
 //API routes
 app.get("/",(request, response) => response.status(200).send("hello world"));
 app.post("/payments/create", async (request,response) => {
-    //response.setHeader("Access-Control-Allow-Origin", "*")
-    //response.setHeader("Access-Control-Allow-Credentials", "true");
+
     const total = request.query.total;
 
     console.log("Payment Request Received >>>>>> for this amount >>>>>>", total)

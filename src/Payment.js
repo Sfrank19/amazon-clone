@@ -29,14 +29,11 @@ function Payment() {
     useEffect(() => {
         //generates stripe secret which allows us to charge the cust.
         const getClientSecret = async () => {
-            //post/get requests
+        
             const response = await axios({
                 method: 'post',
                 url: `https://us-central1-clone-7096e.cloudfunctions.net/payments/create?total=${getBasketTotal(basket) * 100}`,
-                /*headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    //"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-                  }*/
+
             });
             setClientSecret(response.data.clientSecret)
         }
